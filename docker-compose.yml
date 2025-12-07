@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  ai-excel:
+    image: ai-excel:latest
+    build: .
+    container_name: ai-excel
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data               # 用来保存你上传的 Excel 文件（可选）
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
